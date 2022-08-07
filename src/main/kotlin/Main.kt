@@ -1,18 +1,18 @@
 const val MASTERCARD = "MasterCard"
 const val MAESTRO = "Maestro"
 const val VISA = "Visa"
-const val MIR = "МИР"
+const val MIR = "РњРР "
 const val VKPAY = "VKPay"
 
 const val enterSumTransaction = 50_000_00
 
 fun choicePaymentSystem(): String {
     print(
-        "Введите номер для выбора платёжной системы: \n" +
+        "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РґР»СЏ РІС‹Р±РѕСЂР° РїР»Р°С‚С‘Р¶РЅРѕР№ СЃРёСЃС‚РµРјС‹: \n" +
                 "1. MasterCard \n" +
                 "2. Maestro \n" +
                 "3. Visa \n" +
-                "4. Мир \n" +
+                "4. РњРёСЂ \n" +
                 "5. VKPay \n"
     )
     val choice = when (readln().toInt()) {
@@ -47,5 +47,5 @@ fun moneyTransferFee(): Int {
 }
 
 fun main() {
-    println("Комиссия за перевод ${moneyTransferFee()} коп.")
+    println("РљРѕРјРёСЃСЃРёСЏ Р·Р° РїРµСЂРµРІРѕРґ ${moneyTransferFee()} РєРѕРї.")
 }
