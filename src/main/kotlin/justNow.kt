@@ -2,11 +2,11 @@ import kotlin.random.Random
 import kotlin.random.nextInt
 
 val timeInSite =
-    Random.nextInt(0..300_000)        //для проверки вместо рандомайзера можно использовать статичное число
+    Random.nextInt(0..300_000)        //РґР»СЏ РїСЂРѕРІРµСЂРєРё РІРјРµСЃС‚Рѕ СЂР°РЅРґРѕРјР°Р№Р·РµСЂР° РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃС‚Р°С‚РёС‡РЅРѕРµ С‡РёСЃР»Рѕ
 
 val secondsToMinutes: Int = timeInSite / 60
 val minutesToHours: Int = secondsToMinutes / 60
-//val hoursToDays: Int = minutesToHours / 24        //добавить, если надо количество дней
+//val hoursToDays: Int = minutesToHours / 24        //РґРѕР±Р°РІРёС‚СЊ, РµСЃР»Рё РЅР°РґРѕ РєРѕР»РёС‡РµСЃС‚РІРѕ РґРЅРµР№
 
 fun timeWithOne(): Boolean = (secondsToMinutes == 1 || secondsToMinutes % 10 == 1 && secondsToMinutes % 100 != 11) ||
         (minutesToHours == 1 || minutesToHours % 10 == 1 && minutesToHours % 100 != 11)
@@ -21,23 +21,23 @@ fun timeWithTwoThreeFour(): Boolean = (timeInSite < 5 && timeInSite != 0 ||
                 minutesToHours % 10 == 4 && minutesToHours != 14)
 
 fun timeToMinute(): String =
-    if (timeWithOne()) "$secondsToMinutes минуту назад"
-    else if (timeWithTwoThreeFour()) "$secondsToMinutes минуты назад"
-    else "$secondsToMinutes минут назад"
+    if (timeWithOne()) "$secondsToMinutes РјРёРЅСѓС‚Сѓ РЅР°Р·Р°Рґ"
+    else if (timeWithTwoThreeFour()) "$secondsToMinutes РјРёРЅСѓС‚С‹ РЅР°Р·Р°Рґ"
+    else "$secondsToMinutes РјРёРЅСѓС‚ РЅР°Р·Р°Рґ"
 
 fun timeToHour(): String =
-    if (timeWithOne()) "$minutesToHours час назад"
-    else if (timeWithTwoThreeFour()) "$minutesToHours часа назад"
-    else "$minutesToHours часов назад"
+    if (timeWithOne()) "$minutesToHours С‡Р°СЃ РЅР°Р·Р°Рґ"
+    else if (timeWithTwoThreeFour()) "$minutesToHours С‡Р°СЃР° РЅР°Р·Р°Рґ"
+    else "$minutesToHours С‡Р°СЃРѕРІ РЅР°Р·Р°Рґ"
 
 fun agoToText(): String {
     val allTime = when (timeInSite) {
-        in 0..60 -> "Был(-а) на сайте только что"
-        in 61..3_600 -> "Был(-а) на сайте ${timeToMinute()}"
-        in 3_601..86_400 -> "Был(-а) на сайте ${timeToHour()}"
-        in 86_401..172_800 -> "Был(-а) на сайте сегодня"
-        in 172_801..259_200 -> "Был(-а) на сайте вчера"
-        else -> "Был(-а) на сайте давно"
+        in 0..60 -> "Р‘С‹Р»(-Р°) РЅР° СЃР°Р№С‚Рµ С‚РѕР»СЊРєРѕ С‡С‚Рѕ"
+        in 61..3_600 -> "Р‘С‹Р»(-Р°) РЅР° СЃР°Р№С‚Рµ ${timeToMinute()}"
+        in 3_601..86_400 -> "Р‘С‹Р»(-Р°) РЅР° СЃР°Р№С‚Рµ ${timeToHour()}"
+        in 86_401..172_800 -> "Р‘С‹Р»(-Р°) РЅР° СЃР°Р№С‚Рµ СЃРµРіРѕРґРЅСЏ"
+        in 172_801..259_200 -> "Р‘С‹Р»(-Р°) РЅР° СЃР°Р№С‚Рµ РІС‡РµСЂР°"
+        else -> "Р‘С‹Р»(-Р°) РЅР° СЃР°Р№С‚Рµ РґР°РІРЅРѕ"
     }
     return allTime
 }
